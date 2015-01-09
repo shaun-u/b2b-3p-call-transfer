@@ -11,15 +11,28 @@
 
 #include "AmApi.h"
 
+class B2b3pCallTransferSession;
+class B2b3pUriMapper;
+
 class B2b3pCallTransferFactory : public AmSessionFactory
 {
+    std::auto_ptr< B2b3pUriMapper > uriMapper;
+    
 public:
     B2b3pCallTransferFactory(const std::string& name);
     
     int onLoad();
     void onUnload();
     
+    /**
+     * incoming leg of B2B call
+     */
     AmSession* onInvite(const AmSipRequest& req);
+    
+    /**
+     * outgoing leg of B2B call
+     */
+    AmSession* onInvite(const AmSipRequest& req, AmArg& session_params);
     
 };
 

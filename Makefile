@@ -1,5 +1,5 @@
 
-plug_in_name = b2b-3p-call-transfer
+plug_in_name = b2b3pcalltransfer
 
 module_ldflags =
 module_cflags =
